@@ -76,7 +76,7 @@ pipeline
 		stage('Deploy War into Tomcat'){
 		    steps{
 		       sshagent(['Tomcat-Web-Server']) {
-	            sh '/root/.jenkins/workspace/Registration-Form-1/webapp/target/*.war root@192.168.10.165:/opt/tomcat/webapps' 
+	            sh 'scp /root/.jenkins/workspace/Registration-Form-1/webapp/target/*.war root@192.168.10.165:/opt/tomcat/webapps' 
 	            }
 		    }
 		}
