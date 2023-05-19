@@ -47,27 +47,27 @@ input[type=submit], input[type=reset]{
 <!--------------------- First Name ------------------------------------------>
 <tr>
 <td>First Name</td>
-<td><input type="text" name="FirstName" maxlength="50" placeholder="Cloud Gen Softech Systems" />
+<td><input type="text" name="FirstName" maxlength="50" placeholder="Ghanendra" />
 (Max 50 Characters Allowed)
 </td>
 </tr>
 <!------------------------ Last Name --------------------------------------->
 <tr>
 <td>Last Name</td>
-<td><input type="text" name="LastName" maxlength="50" placeholder="Ravindra"/>
+<td><input type="text" name="LastName" maxlength="50" placeholder="Yadav"/>
 (Max 50 Characters Allowed)
 </td>
 </tr>
 <!-------------------------- Email ID ------------------------------------->
 <tr>
 <td>Email ID</td>
-<td><input type="email" name="EmailID" maxlength="100" placeholder="support@cloudgen.in"/></td>
+<td><input type="email" name="EmailID" maxlength="100" placeholder="yghanendra@gmail.com"/></td>
 </tr>
 <!-------------------------- Mobile Number ------------------------------------->
 <tr>
 <td>Mobile Number</td>
 <td>
-<input type="text" name="MobileNumber" maxlength="10" placeholder="7207302263"/>
+<input type="text" name="MobileNumber" maxlength="10" placeholder="7842xxxxxx"/>
 (10 Digits Allowed)
 </td>
 </tr>
@@ -187,21 +187,21 @@ Female
 <!-------------------------- City ------------------------------------->
 <tr>
 <td>City</td>
-<td><input type="text" name="City" maxlength="50" placeholder="Anantapuramu"/>
+<td><input type="text" name="City" maxlength="50" placeholder="Bangalore"/>
 (Max 50 Characters Allowed)
 </td>
 </tr>
 <!----- -------------------- Pin Code-------------------------------------->
 <tr>
 <td>Pin Code</td>
-<td><input type="Number" name="PinCode" maxlength="6" placeholder="515001"/>
+<td><input type="Number" name="PinCode" maxlength="6" placeholder="560068"/>
 (Max 6 Numbers Allowed)
 </td>
 </tr>
 <!---------------------------- State ----------------------------------->
 <tr>
 <td>State</td>
-<td><input type="text" name="State" maxlength="50" placeholder="Andhra Pradesh"/>
+<td><input type="text" name="State" maxlength="50" placeholder="Karnataka"/>
 (Max 50 Characters Allowed)
 </td>
 </tr>
