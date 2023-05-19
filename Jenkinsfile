@@ -67,7 +67,7 @@ pipeline
 			}
 		}
 
-		stage('Test') {
+		stage('Ownership') {
     steps {
         sh "chmod +x -R ${env.WORKSPACE}"
 
