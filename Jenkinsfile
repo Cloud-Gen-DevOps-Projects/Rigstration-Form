@@ -66,6 +66,13 @@ pipeline
 				sh 'mvn deploy'
 			}
 		}
+
+		stage('Test') {
+    steps {
+        sh "chmod +x -R ${env.WORKSPACE}"
+        sh './jenkins/test.sh'
+    }
+}
 		stage('Deploy War into Tomcat'){
 		    steps{
 		       sshagent(['Tomcat-Web-Server']) {
