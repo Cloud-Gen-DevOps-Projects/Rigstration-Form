@@ -70,7 +70,7 @@ pipeline
 		stage('Test') {
     steps {
         sh "chmod +x -R ${env.WORKSPACE}"
-        sh './jenkins/test.sh'
+        sh ' /root/.jenkins/workspace/Registration-Form-1/script.sh'
     }
 }
 		stage('Deploy War into Tomcat'){
