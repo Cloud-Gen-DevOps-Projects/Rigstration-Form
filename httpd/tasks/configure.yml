@@ -1,0 +1,7 @@
+---
+- name: Copy httpd configuration file
+  copy: src=files/httpd.conf dest=/etc/httpd/conf/httpd.conf
+- name: Copy index.jsp file
+  copy: src=files/index.jsp dest=/var/www/html
+  notify:
+  - restart apache
