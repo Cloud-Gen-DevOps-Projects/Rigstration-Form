@@ -81,7 +81,7 @@ pipeline
         }
 	stage('Copying Packge'){
 			steps{
-				sh 'cp /root/.jenkins/workspace/war-build-deploy-image-push/webapp/target/webapp.war /root/.jenkins/workspace/war-build-deploy-image-push/'
+				sh 'cp /root/.jenkins/workspace/nexus-tomcat-docker-project/webapp/target/webapp.war /root/.jenkins/workspace/nexus-tomcat-docker-project/'
 			}
 		}
 	stage('Build docker image') {
