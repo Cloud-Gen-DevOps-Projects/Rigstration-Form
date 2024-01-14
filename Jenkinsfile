@@ -17,14 +17,12 @@ pipeline
 		}
        stage("SonarQube analysis") {
             steps {
-              withSonarQubeEnv('SonarQube') {
+              withSonarQubeEnv('DevOps-Project-2') {
                 sh 'mvn clean install sonar:sonar'
               }
             }
           }
 
-        
-        
         stage('Maven Plugins Install'){
 		steps{
 				sh 'mvn install'
