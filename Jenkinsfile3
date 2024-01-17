@@ -1,0 +1,54 @@
+pipeline {
+    agent any
+
+    environment {
+        // Add the path to Maven bin directory to the PATH variable
+        PATH = "/opt/maven/bin:${env.PATH}"
+        M2_HOME = tool 'maven'
+       
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Devops9AM/Rigstration-Form.git'
+            }
+        }
+
+         stage("SonarQube analysis") {
+            steps {
+                
+              withSonarQubeEnv('DevOps-Project-2') {
+                sh 'mvn clean install sonar:sonar'
+              }
+            }
+          }
+         
+         
+         stage("SonarQube Code Quality Gates") {
+            steps {
+                timeout(time: 2, unit: 'MINUTES') {
+              withSonarQubeEnv('DevOps-Project-2') {
+                sh 'mvn clean install sonar:sonar'
+              }
+            }
+          }
+         }
+    }
+
+    post {
+        
+            failure {
+            emailext subject: "Failed: \${JOB_NAME} \${BUILD_NUMBER}",
+                      body: "Hi Your Build was Something went wrong. Check the build at \${BUILD_URL}",
+                      to: "ravindra.devops@gmail.com",
+                      from: "ravindra.devops@gmail.com"
+        }
+        success {
+            emailext subject: "Successful: \${JOB_NAME} \${BUILD_NUMBER}",
+                      body: "Hi Your Build was successful. See details at \${BUILD_URL}",
+                      to: "ravindra.devops@gmail.com",
+                      from: "ravindra.devops@gmail.com"
+        }
+    }
+}
