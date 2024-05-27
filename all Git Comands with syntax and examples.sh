@@ -1,4 +1,4 @@
-      yum update -y
+yum update -y
 hostnamectl set-hostname gps
 exec bash
 yum install vim wget tar make unzip -y
