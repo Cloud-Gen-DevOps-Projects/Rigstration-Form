@@ -32,11 +32,12 @@ pipeline{
 				sh 'mvn clean package'
 			}
 		}
-
-	stage("War Deploy to JBoss Server"){
+		stage("War Deploy to JBoss Server"){
 			steps{
 				sh 'scp ./webapp/target/register-form.war root@192.168.254.165:/opt/wildfly/standalone/deployments'
 			}
 		}
+		
+
 	}
 }
