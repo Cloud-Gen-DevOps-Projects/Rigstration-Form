@@ -17,7 +17,7 @@ pipeline
 		}
        stage("SonarQube analysis") {
             steps {
-              withSonarQubeEnv('DevOps-Project-2') {
+              withSonarQubeEnv('sonar') {
                 sh 'mvn clean install sonar:sonar'
               }
             }
