@@ -37,6 +37,11 @@ pipeline{
 				sh 'scp ./webapp/target/register-form.war root@192.168.254.165:/opt/wildfly/standalone/deployments'
 			}
 		}
+		stage ('Change File Ownership'){
+			steps{
+				sh 'ssh root@192.168.254.165 "chown wildfly:wildfly /opt/wildfly/standalone/deployments/register-form.war"'
+				}
+			}
 		
 
 	}
