@@ -21,8 +21,7 @@ pipeline{
 		stage("SonarQube Code Analysis"){
 			steps{
 				withSonarQubeEnv('sonar-token'){
-					sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=zomato \
-                    -Dsonar.projectKey=zomato '''
+					sh 'mvn clean sonar:sonar'
 				}
 			}
 		}
