@@ -1,48 +1,43 @@
 pipeline{
-	agent any 
-	tools{
-		jdk 'jdk17'
+	agent any
+	tools {
 		maven 'maven'
-		
 	}
 	environment{
-		SCANNER_HOME=tool 'sonar-token'
+		SCANNER_HOME=tool 'sonar'
 	}
 	stages{
-		stage('clean workspace'){
-			steps{
-				cleanWs()
-			}
-		}
-		stage('Code Checkout From Git'){
+		stage("Code Check Out"){
 			steps{
 				git branch: 'main', url: 'https://github.com/Cloud-Gen-DevOps-Projects/Rigstration-Form.git'
+				}
+			}
+		stage("Clean Artifact"){
+			steps{
+				sh 'mvn clean'
 			}
 		}
-		stage("SonarQube Code Analysis"){
+		stage("Code Quality Check"){
 			steps{
-				withSonarQubeEnv('sonar-token'){
+				withSonarQubeEnv('sonar'){
 					sh 'mvn clean sonar:sonar'
 				}
 			}
 		}
-		
+
 		stage("Package Build"){
 			steps{
-				sh 'mvn clean package'
+				sh 'mvn package'
 			}
 		}
-		stage("War Deploy to JBoss Server"){
+		stage("Artifact Deploy to Nexus"){
 			steps{
-				sh 'scp ./webapp/target/register-form.war root@192.168.254.165:/opt/wildfly/standalone/deployments'
+				sh 'mvn deploy'
+				
 			}
-		}
-		stage ('Change File Ownership'){
-			steps{
-				sh 'ssh root@192.168.254.165 "chown wildfly:wildfly /opt/wildfly/standalone/deployments/register-form.war"'
-				}
 			}
 		
 
 	}
+
 }
