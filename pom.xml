@@ -22,7 +22,7 @@
 
   <distributionManagement>
    <repository>
-            <id>deployments</id>
+            <id>deployment</id>
             <name>Internal Releases</name>
             <url>http://192.168.49.1:8081/repository/Cloud-Gen-Release/</url>
         </repository>
