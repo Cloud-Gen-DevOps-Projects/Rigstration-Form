@@ -36,7 +36,13 @@ pipeline {
 				sh "docker build -t cloudgen01/registration-form:latest ."
 			}
 		}
-		
+		stage("Docker Image Upload into Docker Registry"){
+			steps{
+				withDockerRegistry(credentialsId: 'Docker-Cloudgen01', url: 'https://hub.docker.com/repository/docker/cloudgen01/register-app/general') {
+    			sh "docker push cloudgen01/registration-form:latest"
+				}
+			}
+		}
 
 
 
