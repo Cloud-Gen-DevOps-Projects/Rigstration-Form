@@ -33,7 +33,7 @@ pipeline {
 		}
 		stage("Docker Image Build"){
 			steps{
-				sh "docker build -t cloudgen01/registration-Form:latest ."
+				sh "docker build -t cloudgen01/registration-form:latest ."
 			}
 		}
 		
